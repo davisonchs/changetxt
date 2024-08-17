@@ -49,7 +49,7 @@ module.exports = () => {
       // Webpack plugin that generates our html file and injects our bundles. 
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'J.A.T.E.',
+        title: 'changetxt',
       }),
 
       // Injects our custom service worker
@@ -70,11 +70,7 @@ module.exports = () => {
         start_url: './',
         publicPath: './',
         icons: [
-          {
-            src: path.resolve('src/images/logo.png'),
-            sizes: [96, 128, 192, 256, 384, 512],
-            destination: path.join('assets', 'icons'),
-          },
+        
         ],
       }),
     ],

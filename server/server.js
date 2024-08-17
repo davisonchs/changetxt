@@ -7,6 +7,7 @@ const distPath = path.join(__dirname, '../client/dist');
 console.log('Serving static files from:', distPath);
 
 app.use(express.static(distPath));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

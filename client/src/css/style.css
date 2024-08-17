@@ -1,6 +1,6 @@
 /* Global Variables */
 :root {
-  --primary: #4a90e2; /* Updated primary color: a cooler blue */
+  --primary: #28a745; /* Updated primary color: a fresh green */
   --secondary: #50e3c2; /* Added secondary color: teal */
   --accent: #f5a623; /* Added accent color: a warm orange */
   --gray: #ececec;
@@ -27,7 +27,7 @@ h1 {
 /* Navbar Styles */
 #navbar {
   height: var(--navbar-height);
-  background-color: var(--primary);
+  background-color: var(--primary); /* Updated to green */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
   display: flex;
   align-items: center;

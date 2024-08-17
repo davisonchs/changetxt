@@ -1,210 +1,213 @@
 /* Global Variables */
 :root {
-    --primary: #31a9e1;
-    --gray: #ececec;
-    --whitesmoke: #f5f5f5;
-    --dark: #222;
-    --monoaki: #272822;
-    --navbar-height: 50px;
-    --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-      Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --primary: #4a90e2; /* Updated primary color: a cooler blue */
+  --secondary: #50e3c2; /* Added secondary color: teal */
+  --accent: #f5a623; /* Added accent color: a warm orange */
+  --gray: #ececec;
+  --whitesmoke: #f5f5f5;
+  --dark: #333; /* Darker shade for text */
+  --monoaki: #1e1e1e; /* Darker background */
+  --navbar-height: 60px; /* Increased navbar height for more impact */
+  --font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  background-color: var(--monoaki);
+  font-family: var(--font-family);
+  color: var(--whitesmoke); /* Changed default text color */
+}
+
+h1 {
+  font-size: 24px; /* Slightly larger font size for headers */
+  color: var(--accent); /* Use accent color for headers */
+}
+
+/* Navbar Styles */
+#navbar {
+  height: var(--navbar-height);
+  background-color: var(--primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  font-size: 24px; /* Larger font size */
+  font-weight: 600; /* Increased font weight */
+  letter-spacing: 1px; /* Increased letter-spacing */
+}
+
+.navbar-brand img {
+  padding-top: 10px;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  animation: rotate-forever 0.75s linear infinite;
+  height: 30px;
+  width: 30px;
+  border: 3px solid var(--secondary); /* Use secondary color */
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - var(--navbar-height));
+}
+
+@keyframes rotate-forever {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  /* Global Styles */
-  body {
-    margin: 0;
-    background-color: var(--monoaki);
-    font-family: var(--font-family);
+  100% {
+    transform: rotate(360deg);
   }
-  
-  h1 {
-    font-size: 22px;
+}
+
+/* App Update Notification */
+.app-update {
+  display: none;
+  position: absolute;
+  right: 10px;
+}
+
+.app-update.show {
+  display: block;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  text-align: center;
+  padding: 0.6rem 1.4rem;
+  margin: 0;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 0.4rem;
+  border: 1px solid transparent;
+  outline: none;
+  color: var(--dark); /* Updated text color */
+  background-color: var(--gray);
+  transition: all 0.3s ease-in-out; /* Smoothed transition */
+}
+
+.btn:hover {
+  background-color: var(--secondary);
+  color: var(--whitesmoke); /* Text color changes on hover */
+  cursor: pointer;
+}
+
+.btn-squared {
+  border-radius: 0;
+}
+
+.btn-sm {
+  font-size: 0.85rem;
+  padding: 0.3rem 0.9rem;
+}
+
+.btn-lg {
+  font-size: 1.25rem;
+  padding: 0.8rem 1.4rem;
+}
+
+.btn-block {
+  width: 100%;
+  display: block;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--whitesmoke);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary);
+}
+
+.btn-danger {
+  background-color: #e64c66;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #ee8294;
+}
+
+.btn-info {
+  background-color: var(--secondary);
+  color: #fff;
+}
+
+.btn-info:hover {
+  background-color: var(--accent);
+}
+
+.btn-light {
+  background-color: var(--whitesmoke);
+  color: var(--dark);
+}
+
+.btn-light:hover {
+  background-color: #ccc;
+}
+
+.btn-dark {
+  background-color: var(--dark);
+  color: var(--whitesmoke);
+}
+
+.btn-dark:hover {
+  background-color: #666;
+}
+
+.btn-white {
+  background-color: #fff;
+  color: var(--dark);
+}
+
+.btn-white:hover {
+  background-color: var(--gray);
+}
+
+.btn-black {
+  background-color: #000;
+  color: #fff;
+}
+
+.btn-black:hover {
+  background-color: #444;
+}
+
+.btn-link {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.btn-link:hover {
+  background-color: var(--primary);
+}
+
+/* Utility Classes */
+.hidden {
+  display: none;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 600px) {
+  .nav-btn, .navbar-brand {
+    display: none;
   }
-  
-  /* Navbar Styles */
+
   #navbar {
-    height: var(--navbar-height);
-    background-color: var(--primary);
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: white;
-    font-size: 22px;
-    font-weight: 550;
-    letter-spacing: 0.9px;
-  }
-  
-  .navbar-brand img {
-    padding-top: 10px;
-  }
-  
-  /* Loading Spinner */
-  .loading-spinner {
-    animation: rotate-forever 0.75s linear infinite;
-    height: 30px;
-    width: 30px;
-    border: 3px solid var(--primary);
-    border-right-color: transparent;
-    border-radius: 50%;
-  }
-  
-  .loading-container {
-    display: flex;
     justify-content: center;
-    align-items: center;
-    height: calc(100vh - var(--navbar-height));
   }
-  
-  @keyframes rotate-forever {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+
+  h1 {
+    font-size: 20px;
   }
-  
-  /* App Update Notification */
-  .app-update {
-    display: none;
-    position: absolute;
-    right: 10px;
-  }
-  
-  .app-update.show {
-    display: block;
-  }
-  
-  /* Button Styles */
-  .btn {
-    display: inline-block;
-    text-align: center;
-    padding: 0.5rem 1.2rem;
-    margin: 0;
-    text-decoration: none;
-    font-size: 1rem;
-    border-radius: 0.3rem;
-    border: 1px solid transparent;
-    outline: none;
-    color: #1a1a1a;
-    background-color: #aeaeae;
-    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-  }
-  
-  .btn:hover {
-    background-color: #cecece;
-    cursor: pointer;
-  }
-  
-  .btn-squared {
-    border-radius: 0;
-  }
-  
-  .btn-sm {
-    font-size: 0.85rem;
-    padding: 0.3rem 0.9rem;
-  }
-  
-  .btn-lg {
-    font-size: 1.25rem;
-    padding: 0.8rem 1.4rem;
-  }
-  
-  .btn-block {
-    width: 100%;
-    display: block;
-  }
-  
-  .btn-primary {
-    background-color: #2d3e50;
-    color: #d9e9e8;
-  }
-  
-  .btn-primary:hover {
-    background-color: #57779a;
-  }
-  
-  .btn-danger {
-    background-color: #e64c66;
-    color: #fff;
-  }
-  
-  .btn-danger:hover {
-    background-color: #ee8294;
-  }
-  
-  .btn-info {
-    background-color: #1bbc9b;
-    color: #fff;
-  }
-  
-  .btn-info:hover {
-    background-color: #31e1bd;
-  }
-  
-  .btn-light {
-    background-color: #d9e9e8;
-    color: #1a1a1a;
-  }
-  
-  .btn-light:hover {
-    background-color: #84b8b4;
-  }
-  
-  .btn-dark {
-    background-color: #1a1a1a;
-    color: #d9e9e8;
-  }
-  
-  .btn-dark:hover {
-    background-color: #5f5f5f;
-  }
-  
-  .btn-white {
-    background-color: #fff;
-    color: #1a1a1a;
-  }
-  
-  .btn-white:hover {
-    background-color: #ccc;
-  }
-  
-  .btn-black {
-    background-color: #000;
-    color: #fff;
-  }
-  
-  .btn-black:hover {
-    background-color: #666;
-  }
-  
-  .btn-link {
-    background-color: #1b89bc;
-    color: #fff;
-  }
-  
-  .btn-link:hover {
-    background-color: var(--primary);
-  }
-  
-  /* Utility Classes */
-  .hidden {
-    display: none;
-  }
-  
-  /* Media Queries */
-  @media only screen and (max-width: 600px) {
-    .nav-btn, .navbar-brand {
-      display: none;
-    }
-  
-    #navbar {
-      justify-content: center;
-    }
-  
-    h1 {
-      font-size: 18px;
-    }
-  }
-  
+}
